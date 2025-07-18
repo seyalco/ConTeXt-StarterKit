@@ -1,0 +1,7 @@
+% typographic.tex - placeholder
+
+%How to use fonts:
+%first update font list aften installing it on yout system(or putting it in yout defiined font folder) with this command:
+% mtxrun --script fonts --reload
+%How to Search yout font to findout it's correctly installed:
+% mtxrun --script fonts --list --all --pattern='*samim*'

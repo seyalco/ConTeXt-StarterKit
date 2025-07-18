@@ -1,1 +1,14 @@
 % Main.ctx - placeholder
+\usepath[{./Sections/}]
+\usepath[{./Setups/}]
+\usepath[{./Symbols/}]
+
+\input{Fonts.ctx}
+\input{Theme.ctx}
+\input{Setups.ctx}
+\input{Symbols.ctx}
+\input{ToFarsi.ctx}
+
+\starttext
+Hello World!
+\stoptext
