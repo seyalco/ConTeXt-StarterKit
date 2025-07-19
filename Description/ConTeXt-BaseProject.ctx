@@ -1,0 +1,20 @@
+this is context base project
+we describe some essential hint's in this file for more clarification.
+
+we added .gitignore file inside Template folder for ignoring tracking irrevelant file's 
+but we don't initialize git inside that folder because it's not necessary and you can do it simply with git init command.
+
+so let's start it
+
+preface: what is goal of our project structure:
+
+out project base has consisted from 4 main folder
+1. Setups:
+you put in this folder good things!
+
+2. Sections:
+
+3. Sources:
+
+4. Symbols:
+in this minmal example we used one custom emoji in our text by putting it's pdf file (footnote: it currently has better supporting for vector than svg, also you can use png without problem) in this folder.

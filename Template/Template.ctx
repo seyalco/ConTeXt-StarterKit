@@ -1,4 +1,4 @@
-% Main.ctx - placeholder
+% Template.ctx - placeholder
 \usepath[{./Sections/}]
 \usepath[{./Setups/}]
 \usepath[{./Symbols/}]
