@@ -18,3 +18,11 @@ you put in this folder good things!
 
 4. Symbols:
 in this minmal example we used one custom emoji in our text by putting it's pdf file (footnote: it currently has better supporting for vector than svg, also you can use png without problem) in this folder.
+
+
+section:
+what is purpose of README.md?
+1. for emacs session sav/load
+2. it act's as start menu for end user
+you should provide simple instruction for how to compile the project and what is your context version
+in this manner it make's your project more portable.
