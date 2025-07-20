@@ -7,3 +7,265 @@
 %%Line Spacing::
 
 %% remember: Adding a code to produce alongsidec Main.pdf our  TiTLE.pdf 
+
+%%%%%%%%%%General Setting%%%%%%%%%%
+
+\setuppapersize[A5]
+\setupbodyfont[Samim]
+\setupalign[r2l]
+\setupdirections[bidi=global]
+\setupuserpagenumber[numberconversion=arabicdecimals]
+\setuppagenumbering[location=none,]
+%\setupinteraction[state=start]
+
+%%%%%%%%%%setup layout%%%%%%%%%%
+
+\setuplayout
+    [width=middle,
+     %height=\dimexpr\paperheight\relax,
+     height=middle,
+     topspace=3mm,location=doublesided,
+     header=5mm,
+     headerdistance=3mm,
+     backspace=10mm,
+     cutspace=10mm,
+     footer=12mm,
+     ]
+
+%%%%%%%%%%Pragraph spacing%%%%%%%%%%
+
+\setupwhitespace[quarterline]     %paragraph spacing
+\setupinterlinespace[line=3.4ex]  %line spacing
+\setuptolerance[tolerant]
+
+%%%%%%%%%%Text&Background Color%%%%%%%%%%
+
+\setupcolors[textcolor=colMaintext]
+
+\startreusableMPgraphic{docbackground}
+filldraw fullsquare xscaled PaperWidth yscaled PaperHeight withcolor \MPcolor{colBackground};
+\stopreusableMPgraphic
+
+\definelayer
+ [DocBack]
+ [repeat=yes,
+  width=\paperwidth,
+  height=\paperheight]
+
+\setlayer[DocBack] {\reusableMPgraphic{docbackground}}
+\setupbackgrounds[page][background=DocBack]
+
+%%%%%%%%%%Header Style%%%%%%%%%%
+\def\HeadTitle{شرح زیارت عاشورا}
+\setupfooter[style=FontHeader,color=colHeader]
+
+\setuplayouttext[footer][text]
+   [middletext={\userpagenumber},   
+    %righttext=,
+    %lefttext=,
+    ]
+
+%%%%%%%%%%Faraz Section Style%%%%%%%%%%
+\def\Hashtag#1{\hbox{\ctxlua{
+        str = "#1"
+        new = string.gsub(str," ","_")
+
+        context.letterhash()
+        context(new)}}}
+
+\definehead[faraz][section]
+\setuphead
+   [faraz]
+   [textcommand={\Hashtag{\structuretitle}\gobbleoneargument},
+    textcolor=colFaraz,
+    style=FontFaraz,
+    number=no,
+    aftersection={\placenotes[ManbaNote] \page},
+    %page={header},
+    %header=empty,
+    ]
+
+%%%%%%%%%%Ziyarat Frame%%%%%%%%%%
+
+\defineframedtext[zframe]
+                 [frame=off,
+                  style=FontZiyarat,
+                  align=middle,
+                  width=0.8\makeupwidth,]
+\starttexdefinition spaces protected ziMstyle #1
+   \startMPcode
+     picture tt ; tt:= lmt_outline [
+       kind = "path",
+       text = "{\zframe{#1}}",
+     ];
+   fill
+     for i within tt : pathpart i && endfor cycle
+     withshademethod "linear"
+     withshadedirection up
+     withshadecolors (\MPcolor{colZGleft},\MPcolor{colZGright});
+   \stopMPcode
+\stoptexdefinition
+\def\ziyaratframe#1{\blank[10mm]\midaligned{\ziMstyle{\zframe{#1}}}\blank[5mm]}
+
+%%%%%%%%%%Manabe Endnote%%%%%%%%%%
+
+\startuseMPgraphic{backcircle}
+numeric Offset, Size;
+Size := 4mm;
+Offset := 0.1EmWidth;
+fill fullcircle scaled (Size + Offset) withcolor \MPcolor{newmanaba};
+\stopuseMPgraphic
+
+\defineoverlay[backcircle][\useMPgraphic{backcircle}]
+
+\define[1]\MyNoteTextcommand{\offset[y=-0.4ex]{#1}}
+
+\definehighlight[EndnoteHighlight]
+   [style=FontTavajjoh,
+    color=colBarjasteh,]
+\def\DManabe{\blank[2*line] \EndnoteHighlight{منابع:} \blank[medium]}
+
+\definenote[ManbaNote][location=text,before={\DManabe},]
+
+\setupnote[ManbaNote]
+    [location=text,
+     textstyle=,
+     textcommand=\MyNoteTextcommand,
+    ]
+    
+\setupnotation[ManbaNote]
+    [way=bysection,
+     style=FontManabe,
+     numberstyle=FontManabe,
+     textcommand=,
+     numbercommand={\offset[y=3pt]\framed[frame=off,background=backcircle,location=low,boffset=3pt]},
+     numberconversion=arabicdecimals,
+     margin=yes,
+    ]
+
+   
+%%%%%%%%%%Barjasteh Highlight%%%%%%%%%%
+
+\definehighlight[Barjasteh][style=FontBarjasteh,color=colBarjasteh]
+
+%%%%%%%%%%Matnarabi Highlight%%%%%%%%%
+
+\definehighlight[MatnArabi][style=FontMatnArabi,color=colMatnArabi]
+
+%%%%%%%%%%Tavajjoh Command%%%%%%%%%%
+
+\definehighlight[TavajjohHighlight][style=FontTavajjoh,color=colTavajjoh]
+\def\Tavajjoh#1{\TavajjohHighlight{#1}\blank[small]}
+
+%%%%%%%%%%Naghl Environment%%%%%%%%%%
+
+\startuniqueMPgraphic {NRavi}
+picture p ; p := lmt_svg [filename = "double-quotes-r.svg",width=3mm,] ;
+draw p withcolor \MPcolor{colNRavi};
+dx:=0mm;  
+dy:=3.4mm;
+path P; P:=(-dx, -dy)--(dx, -dy)--(dx, dy)--(-dx, dy)--cycle;
+setbounds currentpicture to P;
+\stopuniqueMPgraphic
+
+\startuniqueMPgraphic{NFarsi}
+picture p ; p := lmt_svg [filename = "brightness-862.svg",width=2mm,] ;
+draw p withcolor \MPcolor{colNFarsi};
+dx:=0mm;
+dy:=2mm;
+path P; P:=(-dx, -dy)--(dx, -dy)--(dx, dy)--(-dx, dy)--cycle;
+setbounds currentpicture to P;
+\stopuniqueMPgraphic
+
+\startuniqueMPgraphic{NArabi}
+picture p ; p := lmt_svg [filename = "brightness-859.svg",width=2mm,] ;
+draw p withcolor \MPcolor{colNArabi};
+dx:=0mm;
+dy:=2mm;
+path P; P:=(-dx, -dy)--(dx, -dy)--(dx, dy)--(-dx, dy)--cycle;
+setbounds currentpicture to P;
+\stopuniqueMPgraphic
+
+\definesymbol[ravisymbol][\uniqueMPgraphic{NRavi}]
+\definesymbol[farsisymbol][\uniqueMPgraphic{NFarsi}]
+\definesymbol[arabisymbol][\uniqueMPgraphic{NArabi}]
+
+\definenarrower[farsinarrower][left=0.3cm,right=1.2cm,before=,]
+\definenarrower[arabinarrower][left=1cm,right=1cm,]
+
+\definedescription[RaviDesc]
+\definedescription[NaghlFarsiDesc]
+\definedescription[NaghlArabiDesc]
+
+\setupdescription[RaviDesc]
+                 [style={\setuplocalinterlinespace[5pt] \FontRavi},
+                  color=colRavi,
+                  width=1mm,before=,distance=10pt,
+                  %margin=-1em,
+                  after=\blank[small],
+                  ]
+\setupdescription[NaghlArabiDesc]
+                 [style=FontNaghlArabi,color=colNaghlArabi,
+                  width=-2mm,before=,
+                  after=\blank[medium],
+                  ]
+\setupdescription[NaghlFarsiDesc]
+                 [style=FontNaghlFarsi,color=colNaghlFarsi,
+                  width=-2mm,before=,
+                  after=\blank[medium],
+                  ]
+\protected\def\Ravi#1
+   {\startRaviDesc{\symbol{ravisymbol}\kern 0.2em} #1\stopNaghlFarsiDesc}
+
+\protected\def\NaghlArabi#1
+   {\startfarsinarrower[left]\startNaghlArabiDesc{\symbol{arabisymbol}\kern 1mm}#1\stopNaghlArabiDesc\stopfarsinarrower}
+
+\protected\def\NaghlFarsi#1
+   {\startfarsinarrower[left]\startNaghlFarsiDesc{\symbol{farsisymbol}\kern 1mm}#1\stopNaghlFarsiDesc\stopfarsinarrower}
+
+\definetextbackground
+  [SectionFrame]
+  [background=color,
+   backgroundcolor=colNaghlBack,
+   frame=off,
+   corner=round,
+   rightoffset=10pt,
+   leftoffset=20pt,
+   topoffset=5pt,
+   bottomoffset=,
+   location=paragraph,
+   ]
+   
+%%%%%%%%%%Amoodi Item List%%%%%%%%%%
+
+\defineitemgroup [AmoodiItem]
+\setupitemgroup [AmoodiItem] [each] [3,packed] [color=colNAmoodi,before=,]
+
+\def\Ebarat{\item}
+
+%%%%%%%%%%Ofoghi Item List%%%%%%%%%%
+
+\defineconversion[arnumber]
+                 [۱,۲,۳,۴,۵,۶,۷,۸,۹,۱۰,۱۱,۱۲,۱۳,۱۴,۱۵,۱۶,۱۷,۱۸,۱۹]
+                 
+\defineitemgroup [OfoghiItem]
+\setupitemgroup  [OfoghiItem] [each]
+                 [arnumber,packed,columns,three]
+                 [color=colNOfoghi,
+                  %command=\Barjasteh,
+                  direction=reverse, stopper=,
+                  right=),leftmargin=5mm]
+                  
+%%%%%%%%%%lines%%%%%%%%%%
+
+\setuplines[before=, after=,]
+
+%%%%%%%%%%Poem%%%%%%%%%%
+
+\defineitemgroup[Mypoem]
+\setupitemgroup [Mypoem][1][horizontal,two]
+                [symbol=,
+                 before=\blank[medium],
+                 after=\blank[medium],]
+   
+%%%%%%%%%%End of File%%%%%%%%%%

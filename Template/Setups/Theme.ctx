@@ -1,1 +1,8 @@
-% theme.ctx - placeholder
+%رنگهای تعریف شده:
+%با تغییر کد هگزادسیمال میتوان رنگ های مختلف را اعمال کرد.
+
+\usecolors[svg] %Explanation of the number of colors and their names on the Wiki
+
+\definecolor[colBackground]   [h=FDFDFD] 
+\definecolor[colMaintext]     [h=101720] 
+\definecolor[colHeader]       [h=204a87]   
