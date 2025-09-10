@@ -1,0 +1,25 @@
+% starter-template.ctx - placeholder
+\usepath[
+    {./Sections/},   % All text sections of the document
+    {./Setups/},     % Fonts, theme, language and other configuration files
+    {./Symbols/},    % Custom symbols and special characters
+    {./Sources/}     % Fonts, images, data files, etc.
+]
+
+%%% Setups %%%
+\input{FontsLoader.ctx}
+\input{FallbackFonts.ctx}
+\input{Fonts.ctx}
+\input{Setups.ctx}
+%\input{Symbols.ctx}
+%\input{Theme.ctx}
+%\input{To-Language.ctx}
+%%% End of Setups %%%
+
+\starttext
+\input{title-page.ctx}
+\input{preface.ctx}
+\input{section1.ctx}
+\input{conclusion.ctx}
+
+\stoptext

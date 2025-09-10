@@ -1,0 +1,99 @@
+% -*- coding: utf-8 -*-
+% Portable Fonts Loader for ConTeXt
+% ---------------------------------
+% This script automatically loads local fonts from the `Sources/Fonts` folder
+% and all its subdirectories, without requiring them to be installed on the system.
+% Works on Windows, Linux, and macOS.
+%
+% Author: [Your Name]
+% License: MIT
+% GitHub: [Repository URL]
+
+%%[lua] start
+\startluacode
+-- Load LuaFileSystem for directory traversal
+local lfs = require("lfs")
+
+-- Select the correct path separator depending on the OS
+-- Windows => ";"
+-- Unix-like (Linux, macOS) => ":"
+local sep = package.config:sub(1, 1) == "\\" and ";" or ":"
+
+-- Get the project directory.
+-- This is where ConTeXt is run from (working directory).
+-- Make sure to run ConTeXt from the project root so that
+-- "Sources/Fonts" path is correct.
+local project_dir = lfs.currentdir()
+
+-- Define the main font directory relative to the project folder
+local main_font_dir = project_dir .. "/Sources/Fonts"
+
+-- Function to collect all subdirectories recursively
+-- This ensures that fonts in nested folders will also be found.
+local function collect_subdirs(dir, list)
+    if lfs.attributes(dir, "mode") == "directory" then
+        -- Add the current folder to the font search list
+        table.insert(list, dir)
+        -- Iterate through the directory entries
+        for entry in lfs.dir(dir) do
+            if entry ~= "." and entry ~= ".." then
+                local fullpath = dir .. "/" .. entry
+                -- If the entry is a directory, search inside it recursively
+                if lfs.attributes(fullpath, "mode") == "directory" then
+                    collect_subdirs(fullpath, list)
+                end
+            end
+        end
+    end
+end
+
+-- Collect all font directories
+local font_paths = {}
+collect_subdirs(main_font_dir, font_paths)
+
+-- Build the new OSFONTDIR environment variable
+local existing = os.getenv("OSFONTDIR") or ""
+local new_path = table.concat(font_paths, sep)
+-- Keep the old OSFONTDIR paths if they exist
+if existing ~= "" then
+    new_path = new_path .. sep .. existing
+end
+
+-- Set the environment variable so ConTeXt font resolver can find them
+os.setenv("OSFONTDIR", new_path)
+
+-- Reset ConTeXt's font cache to ensure new fonts are recognized immediately
+if resolvers and resolvers.resetfonts then
+    resolvers.resetfonts()
+end
+
+-- (Optional) Debug: Uncomment to print all added font paths
+-- for _, p in ipairs(font_paths) do
+--     print("Added font path:", p)
+-- end
+\stopluacode
+%%[lua] stop
+
+%% -------------------------------------------------------------------
+%% Example usage:
+%%
+%% After running this script, you can use *any* font from
+%% `Sources/Fonts` or its subdirectories — without installing it
+%% on your operating system.
+%%
+%% IMPORTANT:
+%%   1. Always use the **full file name** of the font (including .ttf, .otf, etc).
+%%      Example: "Nahid.ttf" instead of just "Nahid".
+%%   2. The `*default` part at the end tells ConTeXt
+%%      to use the font with its default settings.
+%%
+%% Syntax:
+%%   \definedfont[<font-file-name>*default]
+%%
+%% Example:
+%%  \starttext
+%%  \definedfont[Nahid.ttf*default] % Loads Nahid.ttf from portable font folder
+%%  Hello! This text uses the Nahid.ttf font from Sources/Fonts
+%%  or any of its subdirectories—even if it’s not installed system-wide.
+%%  \stoptext
+%% -------------------------------------------------------------------

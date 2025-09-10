@@ -1,0 +1,53 @@
+% ======================================
+% Font and Fallback Configuration
+% ======================================
+% This file contains:
+% 1. Font feature definitions (e.g., ligatures, kerning, language settings)
+% 2. Main font definition (e.g., PT Sans)
+% 3. Additional fonts used throughout the document
+% ======================================
+
+%========== 1. Font Features ==========%
+\definefontfeature [arabis] % Arabic font features
+  [mode=node,
+   language=dflt,
+   script=arab,
+   init=yes, medi=yes, fina=yes, isol=yes,
+   liga=yes, dlig=yes, rlig=yes, clig=yes,
+   mark=yes, mkmk=yes, kern=yes, curs=yes]
+
+%========== 2. Main Font Definition (PT Sans) ==========%
+
+% Typeface setup (serif family: PT Sans)
+\starttypescript [serif] [ptsans]
+  \setups[fallbackfonts] % Load emoji fallback definitions
+
+  % Main font synonyms
+  \definefontsynonym [SerifRegular] [file:PTSans-Regular.ttf] [features=default]
+  \definefontsynonym [SerifBold]    [file:PTSans-Bold.ttf]    [features=default]
+  %\definefontsynonym [SerifMedium] [name:FONTNAME]        [features=arabis]
+\stoptypescript
+
+% Body font size and weight mapping
+\starttypescript [serif] [ptsans]
+  \definebodyfont [default] [rm]
+    [
+      %md=SerifMedium sa 1, % Enable if needed
+      tf=SerifRegular sa 1,
+      bf=SerifBold    sa 1,
+    ]
+\stoptypescript
+
+% Create a named typeface with the defined font and fallbacks
+\starttypescript [ptsans]
+  \definetypeface [ptsans] [rm] [serif] [ptsans] [default] [fallbacks=myfallback]
+\stoptypescript
+
+% Apply the main font to the document body
+\setupbodyfont[ptsans]
+
+
+%========== 3. Other Fonts ==========%
+
+% Definition of other fonts used in the text:
+%\definefont [FontHeader]          [name:arial*arabis at 9pt]

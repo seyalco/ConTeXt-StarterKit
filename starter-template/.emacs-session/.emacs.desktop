@@ -1,0 +1,163 @@
+;; -*- mode: emacs-lisp; lexical-binding:t; coding: utf-8-emacs; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Tue Sep  9 10:06:57 2025
+;; Desktop file format version 208
+;; Emacs version 29.2
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (26815 51977 971938 473000) (desktop . "208") "seyal@dhcppc4" nil nil ((((minibuffer . t) (undecorated) (override-redirect) (font . "-MS  -Consolas-regular-normal-normal-*-21-*-*-*-m-0-iso10646-1") (border-width . 0) (internal-border-width . 0) (child-frame-border-width) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (horizontal-scroll-bars) (foreground-color . "white smoke") (background-color . "gray20") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 8) (right-fringe . 8) (no-special-glyphs) (scroll-bar-foreground . "dark turquoise") (scroll-bar-background . "gray20") (menu-bar-lines . 1) (tab-bar-lines . 0) (tool-bar-lines . 1) (title) (wait-for-wm . t) (tool-bar-position . top) (inhibit-double-buffering) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 16) (scroll-bar-height . 16) (alpha) (alpha-background) (no-focus-on-map) (no-accept-focus) (fullscreen . maximized) (visibility . t) (use-frame-synchronization) (skip-taskbar) (z-group) (display-type . color) (background-mode . dark) (cursor-color . "white") (font-parameter) (sticky) (shaded) (environment) (last-focus-update . t) (dnd-root-window-position) (frameset--id . "A949-FB0A-16FB-30E1") (frameset--mini t . t) (height . 43) (width . 153) (modeline . t) (unsplittable) (left . 44) (top . 0) (icon-name) (display . ":0") (explicit-name)) ((min-height . 4) (min-width . 20) (min-height-ignore . 3) (min-width-ignore . 8) (min-height-safe . 1) (min-width-safe . 4) (min-pixel-height . 88) (min-pixel-width . 240) (min-pixel-height-ignore . 66) (min-pixel-width-ignore . 96) (min-pixel-height-safe . 22) (min-pixel-width-safe . 48)) hc (pixel-width . 1876) (pixel-height . 937) (total-width . 156) (total-height . 42) (normal-height . 1.0) (normal-width . 1.0) (combination-limit) (leaf (pixel-width . 940) (pixel-height . 937) (total-width . 78) (total-height . 42) (normal-height . 1.0) (normal-width . 0.5) (buffer "starter-template.ctx" (selected . t) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars 7 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 489) (start . 105)) (prev-buffers ("starter-template.ctx" 1 537))) (leaf (last . t) (pixel-width . 936) (pixel-height . 937) (total-width . 78) (total-height . 42) (normal-height . 1.0) (normal-width . 0.5) (buffer "title-page.ctx" (selected) (hscroll . 0) (fringes 8 8 nil nil) (margins nil) (scroll-bars 7 1 t nil 0 t nil) (vscroll . 0) (dedicated) (point . 7295) (start . 6244)) (prev-buffers ("title-page.ctx" 6244 7292) ("Setups.ctx" 1 428) ("Setups" 1 536) ("Sections" 1 185) ("starter-template" 1 462) ("Fonts.ctx" 1 260) ("FallbackFonts.ctx" 1 1341) ("preface.ctx" 1 265) ("FontsLoader.ctx" 1 335) ("Sources" 1 184) ("starter-template.ctx" 1 1)))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '(#("Covergr" 0 7 (isearch-case-fold-search nil isearch-regexp-function nil)) #("super" 0 5 (isearch-case-fold-search t isearch-regexp-function nil)) #("Twe" 0 3 (isearch-case-fold-search nil isearch-regexp-function nil))))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Sections/title-page.ctx" "~/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/" "~/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/FallbackFonts.ctx" "~/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/" "~/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/" "~/" "~/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/starter-template.ctx"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 208
+  "/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/starter-template.ctx"
+  "starter-template.ctx"
+  'context-lmtx-mode
+  '(font-lock-mode company-mode)
+  489
+  '(490 nil)
+  nil
+  nil
+  '((buffer-display-time 26815 51377 851818 349000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (490 490 490 490 490 490 490 645 338 339 315 3 3 573 38 489))))
+
+(desktop-create-buffer 208
+  "/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Sections/title-page.ctx"
+  "title-page.ctx"
+  'context-lmtx-mode
+  '(font-lock-mode company-mode)
+  7295
+  '(6999 nil)
+  nil
+  nil
+  '((buffer-display-time 26815 51850 878370 500000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (6999 3655 3655 3560 3866 4156 4183 1189 902 902 902 748 902 902 3655 6947))))
+
+(desktop-create-buffer 208
+  "/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/Setups.ctx"
+  "Setups.ctx"
+  'context-lmtx-mode
+  '(font-lock-mode company-mode)
+  428
+  '(428 nil)
+  nil
+  nil
+  '((buffer-display-time 26815 11415 643673 11000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (428 428 428 826 240 359 1 1 1 1 1 426 389))))
+
+(desktop-create-buffer 208
+  nil
+  "Setups"
+  'dired-mode
+  '(font-lock-mode)
+  536
+  '(1 nil)
+  t
+  '("/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/")
+  '((buffer-display-time 26814 59512 310515 771000))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "Sections"
+  'dired-mode
+  '(font-lock-mode)
+  185
+  '(nil nil)
+  t
+  '("/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Sections/")
+  '((buffer-display-time 26814 57232 390664 334000))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "starter-template"
+  'dired-mode
+  '(font-lock-mode)
+  462
+  '(976 nil)
+  t
+  '("/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/")
+  '((buffer-display-time 26814 57224 381520 488000))
+  '((mark-ring (976 976 976 449))))
+
+(desktop-create-buffer 208
+  "/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/Fonts.ctx"
+  "Fonts.ctx"
+  'context-lmtx-mode
+  '(font-lock-mode company-mode)
+  260
+  '(216 nil)
+  nil
+  nil
+  '((buffer-display-time 26814 34289 752196 786000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (1328 620 620 620 620 620 1580 1326 620 620 620 1403 1497 1622 1 1))))
+
+(desktop-create-buffer 208
+  "/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/FallbackFonts.ctx"
+  "FallbackFonts.ctx"
+  'context-lmtx-mode
+  '(font-lock-mode company-mode)
+  1341
+  '(2059 nil)
+  nil
+  nil
+  '((buffer-display-time 26814 34064 124649 782000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (1 2066 2068 1881 2059 2068 2070 1992 2202 2206 2205 2065 1276 1344 129))))
+
+(desktop-create-buffer 208
+  "/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Sections/preface.ctx"
+  "preface.ctx"
+  'context-lmtx-mode
+  '(font-lock-mode company-mode)
+  265
+  '(407 nil)
+  nil
+  nil
+  '((buffer-display-time 26814 33065 683538 523000) (buffer-file-coding-system . utf-8-unix))
+  '((mark-ring (29 29 29 29 69 265))))
+
+(desktop-create-buffer 208
+  "/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Setups/FontsLoader.ctx"
+  "FontsLoader.ctx"
+  'context-lmtx-mode
+  '(font-lock-mode company-mode)
+  335
+  '(3323 nil)
+  nil
+  nil
+  '((buffer-display-time 26814 27465 455602 426000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines))
+  '((mark-ring (3250 3186 3106 3091 3337 2516 2516 2516 493 2516 2516 2516 2516 2516 3257 335))))
+
+(desktop-create-buffer 208
+  nil
+  "Sources"
+  'dired-mode
+  '(font-lock-mode)
+  184
+  '(nil nil)
+  t
+  '("/home/seyal/ConTeXt base/Projects/A channel/ConTeXt-StarterKit/starter-template/Sources/")
+  '((buffer-display-time 26814 26653 867642 490000))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  nil
+  "seyal"
+  'dired-mode
+  '(font-lock-mode)
+  162
+  '(nil nil)
+  t
+  '("/home/seyal/")
+  '((buffer-display-time 26814 26392 39468 192000))
+  '((mark-ring nil)))
+

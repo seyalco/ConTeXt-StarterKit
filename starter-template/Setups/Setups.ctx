@@ -1,0 +1,87 @@
+% =========================================
+% File: Setups.ctx
+% Purpose: General template settings
+% =========================================
+
+% ---------- RTL Text Direction ----------
+% \setupalign[r2l]
+% \setupdirections[bidi=global]
+%\setupuserpagenumber[numberconversion=arabicdecimals]
+
+% ---------- General Settings ------------
+\setuppapersize[B5]
+\setuppagenumbering[location=none]
+% \setupinteraction[state=start]
+
+% ---------- Layout Settings -------------
+\setuplayout
+  [width=middle, %automatic calculate
+   height=middle, %
+   location=doublesided,
+   topspace=0.011\paperheight,
+   header=0.018\paperheight,
+   headerdistance=0.011\paperheight,
+   backspace=0.046\paperwidth,
+   cutspace=0.046\paperwidth,
+   footer=0.043\paperheight,
+   ]
+
+% ---------- Paragraph & Line Spacing ----
+\setupwhitespace[halfline]     % Paragraph spacing
+\setupinterlinespace[line=3.4ex]  % Line spacing
+\setuptolerance[tolerant]
+
+% ---------- Text & Background Color -----
+% \setupcolors[textcolor=colMaintext]
+
+% Background Example:
+% \startreusableMPgraphic{docbackground}
+%   filldraw fullsquare xscaled PaperWidth
+%            yscaled PaperHeight
+%            withcolor \MPcolor{colBackground};
+% \stopreusableMPgraphic
+%
+% \definelayer[DocBack]
+%   [repeat=yes, width=\paperwidth, height=\paperheight]
+%
+% \setlayer[DocBack]{\reusableMPgraphic{docbackground}}
+% \setupbackgrounds[page][background=DocBack]
+
+% ---------- Header & Footer Style -------
+\def\HeadTitle{Head Title}
+% \setupfooter[style=FontHeader, color=colHeader]
+
+\setuplayouttext[footer][text]
+  [middletext={\userpagenumber}]
+  % righttext=
+  % lefttext=
+
+% ---------- Defined Highlights ----------
+% \definehighlight[Barjasteh]
+%   [style=FontBarjasteh, color=colBarjasteh]
+
+% ---------- Horizontal Item List --------
+\defineconversion[arnumber]
+  [۱,۲,۳,۴,۵,۶,۷,۸,۹,۱۰,۱۱,۱۲,۱۳,۱۴,۱۵,۱۶,۱۷,۱۸,۱۹]
+
+\defineitemgroup[Horizontlal]
+\setupitemgroup[Horizontlal][each]
+  [arnumber, packed, columns, three]
+  [color=blue,
+   % command=\Barjasteh,
+   direction=reverse,
+   stopper=,
+   right=),
+   leftmargin=5mm]
+
+% ---------- Poem Environment ------------
+\defineitemgroup[Mypoem]
+\setupitemgroup[Mypoem][1]
+  [horizontal, two]
+  [symbol=,
+   before=\blank[medium],
+   after=\blank[medium]]
+
+% =========================================
+% END OF FILE
+% =========================================

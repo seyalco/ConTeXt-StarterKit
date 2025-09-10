@@ -1,0 +1,57 @@
+% This setup defines fallback fonts for emoji characters
+% to ensure proper rendering when the main font does not support them.
+
+\startsetups [fallbackfonts]
+
+% ==========================================
+% Font Fallback Setup
+% ==========================================
+% This setup defines one or more "fallback fonts".
+% A fallback font is used when your main font does NOT include a given character.
+%
+% You can use this technique to:
+%   - Display characters from a language not covered by your main font
+%   - Use a color emoji font for certain Unicode ranges
+%   - Add special symbol sets or icon ranges
+%   - Force specific ranges to always use a particular font
+%
+% You may define multiple fallbacks for different Unicode ranges.
+% ==========================================
+
+% Example 1 — Emoji fallback:
+\definefontfeature  [EmojiUse] 
+  [default][ccmp=yes, colr=yes, svg=yes, sbix=yes] 
+\definefontfallback
+  [myfallback]
+  [file:Twemoji.Mozilla.ttf*EmojiUse]
+  [
+    0x1F300-0x1F5FF, % Misc Symbols and Pictographs
+    0x1F600-0x1F64F, % Emoticons
+    0x1F680-0x1F6FF, % Transport & Map
+    0x1F700-0x1F77F, % Alchemical Symbols
+    0x1F780-0x1F7FF, % Geometric Shapes Extended
+    0x1F800-0x1F8FF, % Supplemental Arrows-C
+    0x1F900-0x1F9FF, % Supplemental Symbols & Pictographs
+    0x1FA00-0x1FAFF, % Symbols & Pictographs Extended
+  ]
+  [force=no, check=no]
+
+
+% ------------------------------------------
+% Example 2 (currently commented out):
+% You can define an additional fallback font for:
+%   - A different Unicode range of emojis
+%   - A specific language not covered by your primary font
+%   - Extra symbols or icons you want to insert
+%
+% IMPORTANT:
+% The fallback name here MUST be the same as the first one ("myfallback").
+% Changing it will break the multiple-range fallback setup.
+% ------------------------------------------
+%  \definefontfeature  [mycolored] % Feature name (can be any identifier)
+%    [default][ccmp=yes, dist=yes, colr=yes, svg=yes, sbix=yes] % Required for color emoji fonts
+%  \definefontfallback [myfallback] % MUST match the name from the first fallback
+%    [file:YourFont.ttf*mycolored]   % Path to your desired fallback font
+%    [0x01F600-0x01F61B]              % Your second Unicode range
+%    [force=yes, check=no]  %force=yes: use fallback even if main font has glyphs
+\stopsetups
