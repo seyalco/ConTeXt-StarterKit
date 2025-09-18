@@ -8,7 +8,7 @@
 % and styling to match your specific needs.
 % ==================================================
 
-%----------------------    ----------------------------
+%--------------------------------------------------
 % 1. PROJECT INFO (all variables are stored here)
 %--------------------------------------------------
 \setvariables[project][
@@ -27,7 +27,7 @@
 \define\InstitutionStyle{\tfb}
 \define\MajorHeadingStyle{\tfa}
 \define\MinorHeadingStyle{\tf}
-\define\TitleStyle{\tfd\bf\spaceskip=0.4em\kerncharacters[0.2]}
+\define\TitleStyle{\tfc\bf\spaceskip=0.4em\kerncharacters[0.2]}
 \define\AuthorLabelStyle{\it}
 \define\AuthorNameStyle{\tf}
 \define\DateStyle{\tf}                                                      

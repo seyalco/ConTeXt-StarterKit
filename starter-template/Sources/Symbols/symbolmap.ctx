@@ -1,0 +1,46 @@
+% =========================================
+% File: symbolmap.ctx
+% Purpose: Defines and manages graphical symbols for the document.
+% =========================================
+
+% -----------------------------------------------------
+% STEP 1: Load Symbol Properties
+%
+% This file contains the variables for each symbol, such as
+% width, spacing (kern), vertical alignment (lower), and filename.
+%
+% >> USER ACTION: To add/modify a symbol's properties, edit this file.
+% -----------------------------------------------------
+\input{set_symbol_vars.ctx}
+
+
+% -----------------------------------------------------
+% STEP 2: Define Symbols from Properties
+%
+% This file uses the variables from STEP 1 to formally define
+% each symbol. It links a symbol name to its graphic file and
+% applies the specified dimensions.
+%
+% >> At this point, you can already use your symbol anywhere in the
+%    document with the standard \symbol[symbolName] command.
+% -----------------------------------------------------
+\input{set_symbol_map.ctx}
+
+
+% -----------------------------------------------------
+% STEP 3: Create a Helper Macro for In-text Symbol Insertion
+%
+% This macro is designed for inserting symbols within lines of text,
+% similar to how emojis are used.
+%
+% It automatically adds the horizontal spacing ('kern' variable) before
+% and after the symbol, which the standard \symbol command does not do.
+% You can rename this macro (e.g., from \ms to \icon) if you wish.
+%
+% Example:
+%   "Here is a star\ms{star} in the text."
+% -----------------------------------------------------
+\define[1]\ms%
+  {\kern\getvariable{#1}{kern}%
+   \symbol[#1]%
+   \kern\getvariable{#1}{kern}}

@@ -1,0 +1,94 @@
+% ============================================================
+% SearchPaths.ctx
+% ------------------------------------------------------------
+% Automatically registers project subdirectories for ConTeXt 
+% via \usepath[].
+%
+% How it works:
+%  • Define "parent folders" located at the project root.
+%  • Script recursively collects all subdirectories.
+%  • Outputs a single \usepath[...] command for use by ConTeXt.
+%
+% Notes:
+%  • The folder containing this script (e.g., "Setups") should 
+%    already b loaded via \usepath and will NOT be scanned here.
+%  • Relative paths (./) are used for cross‑platform compatibility.
+%
+% Usage in main.ctx:
+%     \usepath[{./Setups/}]
+%     \input SearchPaths.ctx
+%
+% Contributors:
+%  • Avoid Lua block comments (--[[ ... ]]) inside \startluacode.
+%    Use safe long comments: --[==[ ... ]==] instead.
+% ============================================================
+
+
+%%[lua] start
+\startluacode
+
+-- Import LuaFileSystem to iterate through directories
+local lfs = require("lfs")
+
+-- Get current project root directory (where main.ctx is executed)
+local root = lfs.currentdir()
+
+-- List of parent folders located at the project root to be included
+-- Adjust these names based on your own project structure
+local parent_folders = {
+    "Sections",  -- Example: all text sections of the document
+    "Symbols",   -- Example: custom symbols, math notations, icons
+    "Sources"    -- Example: fonts, images, datasets
+}
+
+-- Recursively collect subdirectories of a given directory
+local function collect_subdirs(base)
+    local paths = {}
+    for entry in lfs.dir(base) do
+        -- Skip '.' and '..' entries
+        if entry ~= "." and entry ~= ".." then
+            local fullpath = base .. "/" .. entry
+            local attr = lfs.attributes(fullpath)
+            if attr and attr.mode == "directory" then
+                -- Convert absolute path to relative path starting with "./"
+                table.insert(paths, "./" .. fullpath:sub(#root + 2) .. "/")
+                -- Recurse into deeper subdirectories
+                for _, sub in ipairs(collect_subdirs(fullpath)) do
+                    table.insert(paths, sub)
+                end
+            end
+        end
+    end
+    return paths
+end
+
+-- Container for all paths to be passed into the final \usepath command
+local all_paths = {}
+
+-- Iterate through the user-defined parent folders
+for _, folder in ipairs(parent_folders) do
+    local full_folder = root .. "/" .. folder
+    local attr = lfs.attributes(full_folder)
+    if attr and attr.mode == "directory" then
+        -- Add the parent folder itself
+        table.insert(all_paths, "./" .. folder .. "/")
+        -- Add all of its subdirectories recursively
+        local subs = collect_subdirs(full_folder)
+        for _, path in ipairs(subs) do
+            table.insert(all_paths, path)
+        end
+    end
+end
+
+-- Build paths in TeX-friendly format
+-- tex_paths  → {path1},\n{path2},...  (for \usepath)
+-- dir_paths  → {path1,path2,...}      (for \setupexternalfigures)
+local tex_paths = "{" .. table.concat(all_paths, "},\n{") .. "}"
+local dir_paths = "{" .. table.concat(all_paths, ",") .. "}"
+
+-- Send both path lists to ConTeXt in a clean, consistent way
+context(string.format("\\usepath[%s]", tex_paths))
+context(string.format("\\setupexternalfigures[directory=%s]", dir_paths))
+
+\stopluacode
+%%[lua] stop

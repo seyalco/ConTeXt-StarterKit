@@ -1,0 +1,78 @@
+% =========================================================
+% master-layout.ctx
+% Global page layout & background styling for ConTeXt projects
+% Author: Your Name
+% License: MIT
+% Description:
+%   This environment file defines only the page geometry,
+%   margins, and background settings (no fonts or headings).
+% =========================================================
+
+% ---------- 1. Page Geometry Settings ----------
+\setuplayout
+  [width=middle,             % Let ConTeXt calculate text width automatically
+   height=middle,            % Let ConTeXt calculate text height automatically
+   location=doublesided,     % Support different margins for odd/even pages
+   topspace=0.011\paperheight,
+   header=0.018\paperheight,
+   headerdistance=0.011\paperheight,
+   backspace=0.046\paperwidth, % Inner (binding) margin
+   cutspace=0.046\paperwidth,  % Outer margin
+   footer=0.043\paperheight,
+   topskip=0.012\paperheight]  % First baseline distance from top
+
+% Optional: preset for multi-column documents (disabled by default)
+%\setupcolumns[n=2, distance=5mm]
+
+% ---------------------------------------------------------
+% 2. Color Definitions
+% ---------------------------------------------------------
+\definecolor[colBackground][red]  % Light gray page background
+\definecolor[colMaintext] [h=222222]   % Main text color (almost black)
+\definecolor[colHeader]   [h=555577]   % Header/footer text color
+
+% ---------------------------------------------------------
+% 3. Text and Background Setup
+% ---------------------------------------------------------
+\setupcolors[textcolor=colMaintext]
+
+% Background as MetaPost graphic for flexibility
+\startreusableMPgraphic{docbackground}
+    filldraw fullsquare
+        xscaled PaperWidth
+        yscaled PaperHeight
+        withcolor \MPcolor{colBackground};
+\stopreusableMPgraphic
+
+% Define a persistent layer for the background
+\definelayer
+  [DocBack]
+  [repeat=yes,
+   width=\paperwidth,
+   height=\paperheight]
+
+% Place the background in the layer
+\setlayer[DocBack]{\reusableMPgraphic{docbackground}}
+
+% Apply the layer as page background
+\setupbackgrounds[page][background=DocBack]
+
+% ---------------------------------------------------------
+% 4. Header & Footer Style
+% ---------------------------------------------------------
+% Document title (you can override in main file)
+\def\HeadTitle{شرح زیارت عاشورا}
+
+% Footer style
+\setupfooter
+  [style=FontHeader,
+   color=colHeader]
+
+% Page numbering in footer (centered)
+\setuppagenumbering[location=none] %disable default position
+\setuplayouttext[footer][text]
+   [middletext={\userpagenumber}]
+
+
+% =========================================================
+% End of master-layout.ctx

@@ -1,0 +1,102 @@
+% Files found in path .
+% Files found in path colored_symbols
+% Files found in path colored_symbols/Buildings
+% File: circus.pdf
+\definesymbol [Buildings_circus]
+  [{%
+     \scale
+       [width=\getvariable{Buildings_circus}{width}]
+       {%
+         \lower\getvariable{Buildings_circus}{lower}
+           \hbox{%
+             \externalfigure
+               [\getvariable{Buildings_circus}{filename}]
+               [page=1]
+           }%
+       }%
+   }]
+   
+% File: Simley_face.png
+\definesymbol [Buildings_Simley_face]
+  [{%
+     \scale
+       [width=\getvariable{Buildings_Simley_face}{width}]
+       {%
+         \lower\getvariable{Buildings_Simley_face}{lower}
+           \hbox{%
+             \externalfigure
+               [\getvariable{Buildings_Simley_face}{filename}]
+           }%
+       }%
+   }]
+
+% Files found in path colored_symbols/Faces
+% File: smiling.svg
+\startreusableMPgraphic{Faces_smiling}
+  draw lmt_svg [
+    filename = "\getvariable{Faces_smiling}{filename}"
+  ];
+\stopreusableMPgraphic
+
+\definesymbol [Faces_smiling]
+  [{%
+     \scale
+       [width=\getvariable{Faces_smiling}{width}]
+       {%
+         \lower\getvariable{Faces_smiling}{lower}
+           \hbox{\reuseMPgraphic{Faces_smiling}}%
+       }%
+   }]
+
+% Files found in path uncolored_svg
+% File: double_quotes_r.svg
+\startreusableMPgraphic{uncolored_svg_double_quotes_r}
+  draw lmt_svg [
+    filename = "\getvariable{uncolored_svg_double_quotes_r}{filename}"
+  ] withcolor \MPcolor{\getvariable{uncolored_svg_double_quotes_r}{color}};
+\stopreusableMPgraphic
+
+\definesymbol [uncolored_svg_double_quotes_r]
+  [{%
+     \scale
+       [width=\getvariable{uncolored_svg_double_quotes_r}{width}]
+       {%
+         \lower\getvariable{uncolored_svg_double_quotes_r}{lower}
+           \hbox{\reuseMPgraphic{uncolored_svg_double_quotes_r}}%
+       }%
+   }]
+
+% Files found in path uncolored_svg/UFaces
+% File: smile1.svg
+\startreusableMPgraphic{UFaces_smile1}
+  draw lmt_svg [
+    filename = "\getvariable{UFaces_smile1}{filename}"
+  ] withcolor \MPcolor{\getvariable{UFaces_smile1}{color}};
+\stopreusableMPgraphic
+
+\definesymbol [UFaces_smile1]
+  [{%
+     \scale
+       [width=\getvariable{UFaces_smile1}{width}]
+       {%
+         \lower\getvariable{UFaces_smile1}{lower}
+           \hbox{\reuseMPgraphic{UFaces_smile1}}%
+       }%
+   }]
+
+% File: smile2.svg
+\startreusableMPgraphic{UFaces_smile2}
+  draw lmt_svg [
+    filename = "\getvariable{UFaces_smile2}{filename}"
+  ] withcolor \MPcolor{\getvariable{UFaces_smile2}{color}};
+\stopreusableMPgraphic
+
+\definesymbol [UFaces_smile2]
+  [{%
+     \scale
+       [width=\getvariable{UFaces_smile2}{width}]
+       {%
+         \lower\getvariable{UFaces_smile2}{lower}
+           \hbox{\reuseMPgraphic{UFaces_smile2}}%
+       }%
+   }]

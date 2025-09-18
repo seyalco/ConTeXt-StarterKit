@@ -1,25 +1,24 @@
-% starter-template.ctx - placeholder
-\usepath[
-    {./Sections/},   % All text sections of the document
-    {./Setups/},     % Fonts, theme, language and other configuration files
-    {./Symbols/},    % Custom symbols and special characters
-    {./Sources/}     % Fonts, images, data files, etc.
-]
+\usepath[{./Setups/}]
+\input{SearchPaths.ctx}
 
 %%% Setups %%%
-\input{FontsLoader.ctx}
-\input{FallbackFonts.ctx}
-\input{Fonts.ctx}
-\input{Setups.ctx}
-%\input{Symbols.ctx}
+%\input{FontsLoader.ctx}
+%\input{FallbackFonts.ctx}
+%\input{Fonts.ctx}
 %\input{Theme.ctx}
+%\input{MasterLayout.ctx}
+%\input{Setups.ctx}
 %\input{To-Language.ctx}
+\input{symbolmap.ctx}
 %%% End of Setups %%%
 
 \starttext
-\input{title-page.ctx}
-\input{preface.ctx}
-\input{section1.ctx}
-\input{conclusion.ctx}
-
+hello
+%\color[red] {
+\symbol{uncolored_svg_double_quotes_r}
+ey khomeing 
+%\input{TitlePage.ctx}
+%\input{preface.ctx}
+%\input{section1.ctx}
+%\input{conclusion.ctx}
 \stoptext

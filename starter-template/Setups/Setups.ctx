@@ -10,21 +10,8 @@
 
 % ---------- General Settings ------------
 \setuppapersize[B5]
-\setuppagenumbering[location=none]
 % \setupinteraction[state=start]
 
-% ---------- Layout Settings -------------
-\setuplayout
-  [width=middle, %automatic calculate
-   height=middle, %
-   location=doublesided,
-   topspace=0.011\paperheight,
-   header=0.018\paperheight,
-   headerdistance=0.011\paperheight,
-   backspace=0.046\paperwidth,
-   cutspace=0.046\paperwidth,
-   footer=0.043\paperheight,
-   ]
 
 % ---------- Paragraph & Line Spacing ----
 \setupwhitespace[halfline]     % Paragraph spacing
