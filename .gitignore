@@ -5,7 +5,7 @@
 *.tuc
 
 # Ignore .emacs-session folder inside Description/
-Description/.emacs-session/
+.emacs-session
 
 # Ignore Emacs backup files
 *~
