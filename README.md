@@ -23,21 +23,21 @@ The main entry point of your project is **`starter-template.ctx`**.
 To build your document, navigate to your project’s root folder and run:
 ```bash
 context starter-template.ctx
-
+```
 This command will process all linked files and generate the final PDF based on your configured structure.
 
 ---
 
 ## 📂 Project Structure
 
-
+```
 .
 ├── starter-template.ctx   # Main file to compile
 ├── Backups/               # Safe storage folder (ignored by the project)
 ├── Sections/              # All main content (chapters, intro, etc.)
 ├── Setups/                # Global configurations and path settings
 └── Sources/               # Resources (fonts, images, symbols, etc.)
-
+```
 ---
 
 ### **`starter-template.ctx`**
