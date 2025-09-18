@@ -1,6 +1,6 @@
 # ConTeXt-StarterKit — A Ready-to-Use Template for ConTeXt LMTX
 
-## Project Goal
+## 🎯 Project Goal
 
 ConTeXt-StarterKit is a ready-to-use template for producing professional documents using **ConTeXt LMTX**. It provides a robust framework to streamline document creation, making it easy to organize content, settings, and resources while ensuring portability and ease of use.
 
