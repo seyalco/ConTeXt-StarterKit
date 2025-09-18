@@ -1,93 +1,107 @@
 # ConTeXt LMTX Starter Template (starter-template)
 
-ConTeXt-StarterKit is a ready-to-use template for producing professional documents using **ConTeXt LMTX**. It provides a robust framework to streamline document creation, making it easy to organize content, settings, and resources while ensuring portability and ease of use.
+**ConTeXt-StarterKit** is a ready-to-use template for creating professional documents with **ConTeXt LMTX**.  
+It provides a robust framework to help you organize content, configurations, and resources easily, while ensuring portability and ease of use.
+
+---
 
 ## ✨ Key Features
 
--   **Modular Structure:** A clean and organized directory layout separates content, configurations, and resources.
--   **Automated Resource Discovery:** Recursively finds and registers files in `Sections` and `Sources`, making them instantly available throughout your document.
--   **Portable Font Management:** Use custom fonts by simply dropping them into the `Fonts` directory—no system-wide installation required.
--   **Streamlined Symbol Definition:** A Python-based workflow automates the creation and parameterization of custom symbols.
--   **Centralized Bibliography:** Manage all your bibliographic references and settings in one place.
--   **Ready to Compile:** Get started immediately with a pre-configured main file.
+- **Modular Structure:** Cleanly separates content, configurations, and resources.
+- **Automated Resource Discovery:** Recursively scans `Sections` and `Sources` so files are instantly available across your document.
+- **Portable Font Management:** Add custom fonts simply by placing them inside the `Fonts` directory — no system installation required.
+- **Streamlined Symbol Definition:** Automate the creation and parameterization of symbols with a Python workflow.
+- **Centralized Bibliography:** Keep all bibliographic references and settings in one place.
+- **Ready to Compile:** Preconfigured main file to get started instantly.
+
+---
 
 ## 🚀 Getting Started
 
-The main file that orchestrates the entire document is `starter-template.ctx`.
+The main entry point of your project is **`starter-template.ctx`**.
 
-To compile your document, navigate to the project's root directory and run the following command in your terminal:
-
+To build your document, navigate to your project’s root folder and run:
 ```bash
 context starter-template.ctx
-```
 
-This command will process all the linked files and generate your final PDF document based on the content and configurations provided in the project structure.
+This command will process all linked files and generate the final PDF based on your configured structure.
+
+---
 
 ## 📂 Project Structure
 
-The project is organized into four main directories, each with a specific purpose.
-
 
 .
-├── starter-template.ctx   # The main file to compile
-├── Backups/               # A safe place for file storage, ignored by the project
-├── Sections/              # Your document's content (chapters, intro, etc.)
+├── starter-template.ctx   # Main file to compile
+├── Backups/               # Safe storage folder (ignored by the project)
+├── Sections/              # All main content (chapters, intro, etc.)
 ├── Setups/                # Global configurations and path settings
-└── Sources/               # Document resources (fonts, images, symbols, etc.)
+└── Sources/               # Resources (fonts, images, symbols, etc.)
 
-### `starter-template.ctx`
+---
 
-This is the master file. It loads all necessary configurations from `Setups` and includes the content from `Sections` to build the final document. You should not need to edit this file often; instead, work within the other directories.
+### **`starter-template.ctx`**
+The master file. Loads all necessary configurations from `Setups` and imports content from `Sections` to build the document.  
+You’ll rarely need to modify this file directly.
 
-### `Backups/`
+---
 
-This directory is intentionally isolated from the main project compilation. It serves as a safe location to store drafts, old versions of files, or any other assets without interfering with the build process. The contents of this folder are not tracked or used by ConTeXt.
+### **`Backups/`**
+An isolated directory for drafts, old versions, or unused files.  
+Contents here are ignored during the build process.
 
-### `Sections/`
+---
 
-This is where the actual content of your document resides. Each part of your document, such as the introduction, chapters, or appendices, should be a separate file within this directory. The template is configured to automatically find and make these files available for inclusion in `starter-template.ctx`.
+### **`Sections/`**
+Contains the main written content of your document. Each section should be a separate `.ctx` file.  
 
 Example:
 - `Sections/preface.ctx`
 - `Sections/section1.ctx`
 - `Sections/conclusion.ctx`
 
-### `Setups/`
+---
 
-This directory holds all the global configuration files for your document.
+### **`Setups/`**
+Holds all **global configuration** files.
 
--   The template is pre-configured to **recursively search** for files within the `Sections` and `Sources` directories. This means any text or graphic file you add there will be automatically discoverable.
--   **Adding New Search Paths:** If you create a new top-level directory (e.g., `Appendices/`) and want its contents to be automatically discovered, you must register it. To do this, edit the `Setups/SearchPaths.ctx` file and add your new directory's name to the search path list, following the instructions within that file.
+- Configured to **recursively search** `Sections` and `Sources` directories.
+- **Add New Paths:** If you create a new top-level directory (e.g., `Appendices/`), register it in `Setups/SearchPaths.ctx`.
 
-### `Sources/`
+---
 
-This directory is the central hub for all external resources used in your document. It is further divided into subfolders for better organization.
+### **`Sources/`**
+Central resource hub. Contains:
 
 #### `Sources/Symbols/`
-
-Define and manage custom symbols here. This template includes a powerful workflow using Python scripts to automatically define and parameterize symbols. Follow the guidance inside this directory to create reusable symbols that can be easily invoked throughout your document.
+Custom symbol definitions and parameters (automated via Python).
 
 #### `Sources/Fonts/`
-
-This folder enables **portable font management**. To use a custom font, simply place its file (e.g., `.otf`, `.ttf`) inside this directory. The setup automatically registers these fonts for use in your document without requiring you to install them system-wide.
+Portable fonts — just drop `.otf` or `.ttf` files here.
 
 #### `Sources/Bibliography/`
-
-Manage your bibliographic data here. Place your `.bib` files in this directory and configure your citation style settings. This keeps all reference-related information neatly organized.
+All `.bib` files and bibliography style settings.
 
 #### `Sources/Images/`
+Organize all images here (supports nested folders).
 
-Place all images and graphics that you intend to use in your document here. The template is configured to recursively search this directory and all its subdirectories. This means you can organize your images into folders (e.g., `Images/chapter-1/`, `Images/plots/`) and still reference them directly by filename without specifying the full path.
+---
 
 ## 🔧 Customization
 
-This template is designed to be a starting point. You are encouraged to modify and extend it to fit your needs:
+- **Add New Sections:** Create new `.ctx` files in `Sections/`.
+- **Define Custom Commands:** Modify configuration files in `Setups/`.
+- **Expand Resources:** Add fonts, images, or bibliography entries to the respective `Sources` folders.
 
--   **Add New Sections:** Create new `.tex` files in the `Sections` directory and include them in `starter-template.ctx`.
--   **Define Custom Commands:** Use the files in the `Setups` directory to define your own macros, environments, and styling rules.
--   **Expand Resources:** Add your own fonts, images, and bibliography files to the corresponding `Sources` subdirectories.
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.  
+See the [LICENSE](LICENSE) file for full details.
 
+
+---
+
+If you want, I can also create a **dual-language README** (English + Persian) so GitHub renders it beautifully for both audiences.  
+Do you want me to prepare that next?
