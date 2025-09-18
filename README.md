@@ -19,6 +19,7 @@ To compile your document, navigate to the project's root directory and run the f
 
 ```bash
 context starter-template.ctx
+```
 
 This command will process all the linked files and generate your final PDF document based on the content and configurations provided in the project structure.
 
