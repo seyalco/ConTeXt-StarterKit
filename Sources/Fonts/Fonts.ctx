@@ -1,5 +1,11 @@
+%======================================
+% Font Configuration
 % ======================================
-% Font and Fallback Configuration
+
+\input{FontsLoader.ctx}
+\input{FontFeatures.ctx}
+\input{FallbackFonts.ctx}
+
 % ======================================
 % This file contains:
 % 1. Font feature definitions (e.g., ligatures, kerning, language settings)
@@ -7,16 +13,7 @@
 % 3. Additional fonts used throughout the document
 % ======================================
 
-%========== 1. Font Features ==========%
-\definefontfeature [arabis] % Arabic font features
-  [mode=node,
-   language=dflt,
-   script=arab,
-   init=yes, medi=yes, fina=yes, isol=yes,
-   liga=yes, dlig=yes, rlig=yes, clig=yes,
-   mark=yes, mkmk=yes, kern=yes, curs=yes]
-
-%========== 2. Main Font Definition (PT Sans) ==========%
+%========== 1. Main Font Definition (PT Sans) ==========%
 
 % Typeface setup (serif family: PT Sans)
 \starttypescript [serif] [ptsans]
@@ -47,7 +44,9 @@
 \setupbodyfont[ptsans]
 
 
-%========== 3. Other Fonts ==========%
+%========== 2. Other Fonts ==========%
 
 % Definition of other fonts used in the text:
-%\definefont [FontHeader]          [name:arial*arabis at 9pt]
+\definefont [FontHeader]    [file:Nahid.ttf*default at 10pt]
+\definefont [FontFooter]    [file:Nahid.ttf*default at 10pt]
+\definefont [FontImportant] [file:Montserrat-SemiBold.ttf*default at 11pt]

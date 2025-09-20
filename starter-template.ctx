@@ -1,24 +1,23 @@
 \usepath[{./Setups/}]
 \input{SearchPaths.ctx}
 
+%%% Theme %%%
+\input{Theme.ctx}
+
+%%% Sources %%%
+\input{Fonts.ctx}
+\input{SymbolMap.ctx}
+%%% End of Sources %%%
+
 %%% Setups %%%
-%\input{FontsLoader.ctx}
-%\input{FallbackFonts.ctx}
-%\input{Fonts.ctx}
-%\input{Theme.ctx}
-%\input{MasterLayout.ctx}
-%\input{Setups.ctx}
-%\input{To-Language.ctx}
-\input{symbolmap.ctx}
+\input{Setups.ctx}
+\input{MasterLayout.ctx}
+\input{To-Language.ctx}
 %%% End of Setups %%%
 
 \starttext
-hello
-%\color[red] {
-\symbol{uncolored_svg_double_quotes_r}
-ey khomeing 
-%\input{TitlePage.ctx}
-%\input{preface.ctx}
-%\input{section1.ctx}
-%\input{conclusion.ctx}
+\input{TitlePage.ctx}
+\input{preface.ctx}
+\input{section1.ctx}
+\input{conclusion.ctx}
 \stoptext

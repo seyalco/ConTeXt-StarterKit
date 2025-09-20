@@ -27,7 +27,7 @@ def generate_code_for_file(file_path):
     file_without_ext = os.path.splitext(parts[-1])[0]
 
     # Create symbol name like <folder>_<basename>
-    symbol_name = f"{last_folder}_{file_without_ext}"
+    symbol_name = f"{last_folder}:{file_without_ext}"
 
     # Step 1: Special folder handling (priority)
     for key, func in CODE_GENERATORS.items():

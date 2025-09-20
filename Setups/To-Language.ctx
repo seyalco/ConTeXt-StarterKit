@@ -1,3 +1,111 @@
-% To-Language - placeholder
+%
+% ConTeXt Command Localization/Alias File
+% File: To-Language.ctx
+%
+% =============================================================================
+%
+% ## What is this file?
+%
+% This file serves as a high-level "translation layer" or an "alias map" for
+% standard ConTeXt commands. Instead of directly using the native ConTeXt
+% commands (e.g., \startitemgroup, \starttextbackground), this file
+% defines more intuitive, human-readable aliases in a specific natural language.
+%
+% The primary goal is to enhance the writing experience by making the source
+% code more readable and consistent with the language of the main content.
+% This allows authors to focus on the content itself, using familiar words
+% for formatting, rather than mixing a foreign language (English) with their
+% native tongue in the `.ctx` source.
+%
+%
+% ## How does it work?
+%
+% It leverages ConTeXt's powerful macro system (`\def` and `\protected\def`)
+% to create new commands (aliases) that simply execute the original, underlying
+% ConTeXt commands.
+%
+% For instance, instead of writing:
+%
+% \startitemgroup[MyNumberedList]
+%   \item First point.
+%   \item Second point.
+% \stopitemgroup
+%
+% An author writing in French could use aliases defined in this file to write:
+%
+% \debut_liste_numerotee
+%   \element Premier point.
+%   \element Deuxieme point.
+% \fin_liste_numerotee
+%
+% Under the hood, this file would contain the following definitions:
+%
+% \protected\def\debut_liste_numerotee#1\fin_liste_numerotee
+%    {\startitemgroup[MyNumberedList] #1 \stopitemgroup}
+%
+% \def\element{\item}
+%
+%
+% ## How to use this file?
+%
+% 1.  **Define Your Aliases:**
+%     Populate this file with aliases for the ConTeXt commands you frequently
+%     use. It's best to map commands defined in your main setup file (e.g., `Setups.ctx`)
+%     or standard ConTeXt commands.
+%
+%     Example for a "Quotation" environment in Spanish:
+%
+%     % In Setups.ctx you might have:
+%     % \definetextbackground[QuotationFrame][frame=on, framecolor=gray]
+%
+%     % In this file (To-Language.ctx), you define the alias:
+%     \protected\def\iniciar_cita#1\finalizar_cita
+%        {\starttextbackground[QuotationFrame] #1 \stoptextbackground}
+%
+% 2.  **Include in Your Main Document:**
+%     In your main project file (e.g., `main.tex`), include this file using the
+%     `\input` command *after* your primary setup files have been loaded. This
+%     ensures that the original commands are defined before you try to create
+%     aliases for them.
+%
+%     Example `main.tex`:
+%
+%     \usemodule[simplefonts]
+%     \setmainfont[...Your Font...]
+%
+%     % Load custom environments, colors, etc.
+%     \input Setups.ctx
+%
+%     % Load the language aliases. THIS IS THE KEY STEP.
+%     \input To-Language.ctx
+%
+%     \starttext
+%
+%     Here is some text.
+%
+%     % Now, use the Spanish alias instead of the ConTeXt command.
+%     \iniciar_cita
+%        This is a quote. The alias makes the source code cleaner.
+%     \finalizar_cita
+%
+%     \stoptext
+%
+%
+% ## Best Practices
+%
+% - **Clarity:** Choose alias names that are unambiguous and easy to remember in
+%   your target language.
+% - **Organization:** Group related aliases together with comments (e.g., "List Environments,"
+%   "Text Styling," "Symbols").
+% - **Scope:** This file is for aliasing *existing* commands. The actual logic
+%   and styling for those commands should reside in a separate setup file (e.g., `Setups.ctx`).
+%   This separation of concerns makes the project easier to maintain.
+% - **Protection:** Use `\protected\def` for commands that take arguments or define
+%   environments (e.g., `\start...\stop` pairs) to prevent expansion issues. Use `\def`
+%   for simple, argument-less macros.
+%
+% =============================================================================
 
-%re-defining command into your  destination language:
+% ----------------------------------
+% START OF LANGUAGE-SPECIFIC ALIASES
+% ----------------------------------

@@ -1,8 +1,27 @@
-%رنگهای تعریف شده:
-%با تغییر کد هگزادسیمال میتوان رنگ های مختلف را اعمال کرد.
+% ------------------------------------------------------------
+% Theme.ctx - Centralized Color Definitions for ConTeXt (LMTX)
+%
+% Define and manage all project colors in one place to keep
+% styles consistent. Update color values here instead of
+% searching through multiple files or environments.
+%
+% Usage:
+%   \input{Theme.ctx}
+%   Use defined colors (colBackground, colMaintext, colHeader)
+%   across your document.
+% ------------------------------------------------------------
 
-\usecolors[svg] %Explanation of the number of colors and their names on the Wiki
+% Title Page:
+\definecolor[TitleText]    [h=1E2430]
+\definecolor[TitleStart]   [h=E6C15A]  % Deep warm golden-amber
+\definecolor[TitleEnd]     [h=E67676]  % Coral rose-red, energetic but controlled
 
-\definecolor[colBackground]   [h=FDFDFD] 
-\definecolor[colMaintext]     [h=101720] 
-\definecolor[colHeader]       [h=204a87]   
+% Main text:
+\definecolor[ColBackground] [h=1E2430]  % Dark with blue-gray tone
+\definecolor[ColMaintext]   [h=F2F5F8]  % Soft near-white (high readability)
+\definecolor[ColHeader]     [h=5AA9D6]  % Muted blue, softer than main text
+\definecolor[ColFooter]     [h=3B5D73]  % Dark blue, matches background/header
+\definecolor[ColImportant]  [h=E6953B]  % Warm golden-orange for highlights
+
+
+

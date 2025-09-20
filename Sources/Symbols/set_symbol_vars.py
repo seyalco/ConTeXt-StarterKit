@@ -62,8 +62,8 @@ def determine_color(folder_path: str) -> Optional[str]:
 
 
 def build_block_name(folder_name: str, filename: str) -> str:
-    return f"{folder_name}_{Path(filename).stem}"
-
+    return f"{folder_name}:{Path(filename).stem}"
+    
 
 def generate_block(folder: str, filename: str, existing_blocks: Dict[str, Dict[str, str]]) -> str:
     block_name = build_block_name(Path(folder).name, filename)

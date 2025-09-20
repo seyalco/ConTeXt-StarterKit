@@ -1,0 +1,18 @@
+% =========================================================
+% FontFeatures.ctx
+%
+% This file defines reusable sets of OpenType font features.
+% These feature sets can be applied to fonts throughout the project
+% to ensure consistency and keep the main document clean.
+%
+% Usage: \definefont[MyFont][fontname*feature-name at 12pt]
+% =========================================================
+
+% ----------  Font Features ----------
+\definefontfeature [arabis] % Arabic font features
+  [mode=node,
+   language=dflt,
+   script=arab,
+   init=yes, medi=yes, fina=yes, isol=yes,
+   liga=yes, dlig=yes, rlig=yes, clig=yes,
+   mark=yes, mkmk=yes, kern=yes, curs=yes]

@@ -1,6 +1,6 @@
 % Symbols found in colored_symbols/Buildings folder:
 \setvariables
-  [Buildings_circus]
+  [Buildings:circus]
   [
     width=1.6ex, 
     kern=0.2em, 
@@ -8,18 +8,9 @@
     filename=circus.pdf, 
   ]
 
-\setvariables
-  [Buildings_Simley_face]
-  [
-    width=1.6ex, 
-    kern=0.2em, 
-    lower=0.15ex, 
-    filename=Simley_face.png, 
-  ]
-
 % Symbols found in colored_symbols/Faces folder:
 \setvariables
-  [Faces_smiling]
+  [Faces:smiling]
   [
     width=1.6ex, 
     kern=0.2em, 
@@ -27,35 +18,45 @@
     filename=smiling.svg, 
   ]
 
-% Symbols found in uncolored_svg folder:
+% Symbols found in colored_symbols/Fruits folder:
 \setvariables
-  [uncolored_svg_double_quotes_r]
+  [Fruits:grape]
+  [
+    width=1.6ex, 
+    kern=0.2em, 
+    lower=0.15ex, 
+    filename=grape.svg, 
+  ]
+
+% Symbols found in colored_symbols/Physics folder:
+\setvariables
+  [Physics:atom]
+  [
+    width=1.6ex, 
+    kern=0.2em, 
+    lower=0.15ex, 
+    filename=atom.svg, 
+  ]
+
+% Symbols found in uncolored_svg/U_Faces folder:
+\setvariables
+  [U_Faces:smile_square]
+  [
+    color=currentcolor, 
+    width=1.6ex, 
+    kern=0.2em, 
+    lower=0.15ex, 
+    filename=smile_square.svg, 
+  ]
+
+% Symbols found in uncolored_svg/U_Quote folder:
+\setvariables
+  [U_Quote:double_quotes_r]
   [
     color=currentcolor, 
     width=1.6ex, 
     kern=0.2em, 
     lower=0.15ex, 
     filename=double_quotes_r.svg, 
-  ]
-
-% Symbols found in uncolored_svg/UFaces folder:
-\setvariables
-  [UFaces_smile1]
-  [
-    color=red, 
-    width=1.6ex, 
-    kern=0.2em, 
-    lower=0.15ex, 
-    filename=smile1.svg, 
-  ]
-
-\setvariables
-  [UFaces_smile2]
-  [
-    color=currentcolor, 
-    width=1.6ex, 
-    kern=0.2em, 
-    lower=0.15ex, 
-    filename=smile2.svg, 
   ]
 

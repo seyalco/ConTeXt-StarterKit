@@ -117,9 +117,6 @@
 % LAYER: Main title inside frame
 % ===========================================================
 
-\definecolor[TitleStart][h=6EC1E4]  % Blue-teal
-\definecolor[TitleEnd][h=F8BBD0]    % Soft pink
-
 \startreusableMPgraphic{TitleGradient}
   draw lmt_shade [
     path = fullsquare 
@@ -149,7 +146,7 @@
   [location=\getvariable{coverpos}{titleL}]
     {
       \CoverTitleFrame{
-        \TitleStyle{\getvariable{project}{title}}
+        \color[TitleText]{\TitleStyle{\getvariable{project}{title}}}
       }
     }
 
@@ -192,9 +189,12 @@
 % 5. Final Cover Page
 % Combine all layers into a single background
 % ===========================================================
+
+\begingroup % local group
 \setupbackgrounds
   [page]
-  [background={InstitutionLayer,
+  [background={DocBack, %Defined in MasterLayout
+               InstitutionLayer,
                HeadingsLayer,
                TitleLayer,
                AuthorLayer,
@@ -204,3 +204,4 @@
   % No need for extra content here,
   % layers are rendered as background
 \stopstandardmakeup
+\endgroup

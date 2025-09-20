@@ -3,71 +3,54 @@
 % Purpose: General template settings
 % =========================================
 
-% ---------- RTL Text Direction ----------
-% \setupalign[r2l]
-% \setupdirections[bidi=global]
-%\setupuserpagenumber[numberconversion=arabicdecimals]
-
 % ---------- General Settings ------------
 \setuppapersize[B5]
-% \setupinteraction[state=start]
+\setupinteraction[state=start]
 
 
 % ---------- Paragraph & Line Spacing ----
-\setupwhitespace[halfline]     % Paragraph spacing
+\setupwhitespace[halfline]        % Paragraph spacing
 \setupinterlinespace[line=3.4ex]  % Line spacing
 \setuptolerance[tolerant]
 
-% ---------- Text & Background Color -----
-% \setupcolors[textcolor=colMaintext]
-
-% Background Example:
-% \startreusableMPgraphic{docbackground}
-%   filldraw fullsquare xscaled PaperWidth
-%            yscaled PaperHeight
-%            withcolor \MPcolor{colBackground};
-% \stopreusableMPgraphic
-%
-% \definelayer[DocBack]
-%   [repeat=yes, width=\paperwidth, height=\paperheight]
-%
-% \setlayer[DocBack]{\reusableMPgraphic{docbackground}}
-% \setupbackgrounds[page][background=DocBack]
-
-% ---------- Header & Footer Style -------
-\def\HeadTitle{Head Title}
-% \setupfooter[style=FontHeader, color=colHeader]
-
-\setuplayouttext[footer][text]
-  [middletext={\userpagenumber}]
-  % righttext=
-  % lefttext=
 
 % ---------- Defined Highlights ----------
-% \definehighlight[Barjasteh]
-%   [style=FontBarjasteh, color=colBarjasteh]
+\definehighlight[Important] [style=FontImportant, color=ColImportant]
+
+% ---------- Fancy Heads ----------
+
+\definehead
+  [fancysubject] 
+  [subject]      
+
+\setuphead
+  [fancysubject]  
+  [
+    align=center,  
+    style=\bfc,    
+    before={\blank[big]},  
+    after={\blank[2*big]},
+  ]
+
 
 % ---------- Horizontal Item List --------
-\defineconversion[arnumber]
-  [۱,۲,۳,۴,۵,۶,۷,۸,۹,۱۰,۱۱,۱۲,۱۳,۱۴,۱۵,۱۶,۱۷,۱۸,۱۹]
+\defineconversion[EmojNum]
+  [1,
+   {\symbol[Faces:smiling]},
+   {\symbol[U_Faces:smile_square]},
+   {\symbol[Fruits:grape]}
+  ]
 
-\defineitemgroup[Horizontlal]
-\setupitemgroup[Horizontlal][each]
-  [arnumber, packed, columns, three]
+\defineitemgroup[Horizontal]
+\setupitemgroup[Horizontal][each]
+  [EmojNum, packed, columns, three]
   [color=blue,
-   % command=\Barjasteh,
-   direction=reverse,
+   %command=\Important,   
    stopper=,
-   right=),
-   leftmargin=5mm]
+   leftmargin=5mm,]
+
 
 % ---------- Poem Environment ------------
-\defineitemgroup[Mypoem]
-\setupitemgroup[Mypoem][1]
-  [horizontal, two]
-  [symbol=,
-   before=\blank[medium],
-   after=\blank[medium]]
 
 % =========================================
 % END OF FILE

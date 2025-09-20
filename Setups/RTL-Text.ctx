@@ -1,0 +1,24 @@
+% ===============================================================
+% ==  ConTeXt Project: Right-to-Left (RTL) Environment Setup
+% ==  File: RTL-Text.ctx
+% ===============================================================
+%
+% PURPOSE:
+% To provide a one-line setup for documents primarily written in a
+% Right-to-Left (RTL) language, such as Persian, Arabic, or Hebrew.
+%
+% ACTIONS:
+% 1. Sets the default text alignment to Right-to-Left (`\setupalign`).
+% 2. Enables the global bidirectional algorithm (`bidi=global`), which correctly
+%    handles mixed RTL and LTR (e.g., English) text snippets.
+% 3. Configures page numbers to use Arabic-Indic numerals.
+%
+% USAGE:
+% Simply `\input` this file in your main setup file (e.g., Setups.ctx)
+% to apply these settings globally. Note that this file only handles
+% text direction; font definitions must be configured separately.
+
+% ---------- RTL Text Direction ----------
+\setupalign[r2l]
+\setupdirections[bidi=global]
+\setupuserpagenumber[numberconversion=arabicdecimals]
